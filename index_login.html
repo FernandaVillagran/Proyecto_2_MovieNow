@@ -21,8 +21,17 @@
             </div>
             <button type="submit">Login</button>
         </form>
+        <a href="#" id="forgot-password-link">¿Olvidaste tu contraseña?</a>
     </div>
-    
+    <div id="forgot-password-modal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Recuperar Contraseña</h2>
+          <p>Por favor, ingresa tu correo electrónico para recuperar tu contraseña.</p>
+          <input type="email" id="forgot-email" placeholder="Correo electrónico" required>
+          <button id="send-email">Enviar</button>
+        </div>
+      </div>
 
 
     <script src="Script/script_login.js"></script>
