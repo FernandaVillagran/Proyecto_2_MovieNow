@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
       forgotPasswordModal.style.display = 'block';
     });
   
-    closeModal.addEventListener('click', function() {
+    closeModal.addEventListener('onclick', function() {
       forgotPasswordModal.style.display = 'none';
     });
   
