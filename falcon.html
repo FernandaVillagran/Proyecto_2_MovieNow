@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="HTML, CSS, Bootstrap" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymou"/>
+    <title>Movienow</title>
+  </head>
+  <body class="d-flex flex-column">
+<header>
+        <nav class="navbar navbar-expand-lg" style="background-color: #A0153E;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/movie-projector.png" alt="movie-projector"/>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active text-white" aria-current="page" href="index.html"><strong>Inicio</strong></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#"><strong>¿Quiénes somos?</strong></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#"><strong>Contacto</strong></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="d-flex align-items-center">
+                  <form class="me-2 flex-grow-1">
+                      <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                  </form>
+                  <button class="btn btn-light me-2" type="submit">Buscar</button>
+                  <button type="button" class="btn btn-link">
+                      <img width="40" height="40" src="https://img.icons8.com/ios-filled/50/user.png" alt="user"/>
+                  </button>
+              </div>
+              
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div>
+                        <h1 class="letrasdeta text-white">Falcon And The Winter Soldier</h1>
+                        <p class="letrasdeta text-white">+16 / 124Min / 2020 / Full HD+</p>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-4 d-flex justify-content-center position-relative" style="height: 30rem;">
+                        
+                            <img src="img/falcon.jpg" alt="Imagen de pelicula Bad Boys" class="h-100" />
+                            <button class="btn btn-primary btn-play position-absolute top-50 start-50 translate-middle" aria-label="Reproducir" style="width: 60px; height: 60px; font-size: 24px;">
+                                <i class="bi bi-play-fill"></i><img width="24" height="24" src="https://img.icons8.com/forma-bold-filled/24/circled-play.png" alt="circled-play"/>
+                        </a>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 mt-3 m-md-0">
+                        <h3 class="letrasdeta text-white">SINOPSIS</h3>
+                        <p class="letrasdeta text-white text-start">
+                            Steve Rogers ha dejado atrás su papel de superhéroe tras entregar
+                             las gemas del infinito a su correspondiente línea temporal,
+                             otorgando así su escudo a Falcon. Sin embargo, 
+                             éste no está muy de acuerdo de seguir su legado porque cree que solo hay un Capitán América y es él.
+                        </p> 
+                        <iframe width="800" height="350" src="https://www.youtube-nocookie.com/embed/IWBsDaFWyTE?si=XN-DN8MCw1gBAWtl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+
+
+                    <!-- Sugerencias -->
+                    <div>
+                        <h1 class="letrasdeta mt-4 text-white">Sugerencias</h1>
+                    </div>
+                    <div class="container-fluid d-flex justify-content-md-start justify-content-center row row-cols-1 row-cols-sm-3 row-cols-md-4 m-0 vw-100 cardsPadre">
+                        <div class="col caratula">
+                            <div class="img-fluid">
+                                <a href="./detalle.html"><img src="img/drhouse.jpg" class="card-img-top rounded-3" alt="Portada de pelicula Momias" /></a>
+                            </div>
+                        </div>
+                        <div class="col caratula">
+                            <div class="img-fluid">
+                                <a href="./error404.html"><img src="img/family-guy.jpg" class="card-img-top rounded-3" alt="Portada de pelicula High Heat" /></a>
+                            </div>
+                        </div>
+                        <div class="col caratula">
+                            <div class="img-fluid">
+                                <a href="./error404.html"><img src="img/theumbrella.jpg" class="card-img-top rounded-3" alt="Portada de pelicula Corten" /></a>
+                            </div>
+                        </div>
+                        <div class="col caratula">
+                            <div class="img-fluid">
+                                <a href="./error404.html"><img src="img/vikingos.jpg" class="card-img-top rounded-3" alt="Portada de la serie Caribe Todo Incluido" /></a>
+                            </div>
+                        </div>
+                        <div class="col caratula">
+                            <div class="img-fluid">
+                                <a href="./simpsons.html"><img src="img/sompsons.jpg" class="card-img-top rounded-3" alt="Portada de la serie Joaquin, la penultima y me voy" /></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <footer>
+        <div class="container">
+            <div class="row ">
+                <div class="col-md-4 col-sm-6 box">
+                    <h5 class="m-2"><strong>Movie Now</strong></h3>
+                        <a href="./index.html"> <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/movie-projector.png" alt="movie-projector"/></a>
+                </div>
+                <div class="col-md-4 col-sm-6 box">
+                  <strong>Contacto</strong></a>
+                    <p>Gral. Paz 576, S.M. de Tucumán
+                        Tucumán (T4000DAN)</p>
+      
+                </div>
+                <div class="col-md-4 col-sm-6 box">
+                    <h6><strong>Redes Sociales</strong></h6>
+                    <a href="https://www.facebook.com/RollingCodeSchool"><i>
+                       <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/facebook-new.png" alt="facebook-new"/> 
+                      </i></a>
+                    <a href="https://www.instagram.com/rollingcodeschool/"><i>
+                      <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/instagram-new--v1.png" alt="instagram-new--v1"/>
+                    </i></a>
+      
+                </div>
+            </div>
+      
+        </div>
+      </footer>
