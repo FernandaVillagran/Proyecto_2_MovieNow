@@ -1,3 +1,4 @@
+
 body {
     font-family: Arial, sans-serif;
     background-image: url(/Images/pelis-animadas.jpg);
@@ -76,15 +77,15 @@ button:hover {
     border-radius: 5px;
     max-width: 400px;
     height: 300px;
-    
-    
     }
-  
   .close {
   color: #aaa;
   float: right;
   font-size: 28px;
   font-weight: bold
+  }
+  #closeLogin{
+    margin-top: 10px;
   }
   close:hover,.close:focus {
     color: black;

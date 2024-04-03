@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
 // validamos
         if (username === "Fernanda" && password === "villerita") {
             alert("Puede ingresar a la página");
-// Aquí se podria redirigir a otra parte
+            window.location.href = 'admin.html';
         } else {
             alert("Usuario o contraseña incorrectos. Por favor intente nuevamente");
         }
@@ -64,4 +64,8 @@ sendEmailBtn.addEventListener('click', () => {
   } else {
     alert('Por favor ingrese un correo electrónico válido.');
   }
+});
+// Redireccionar a la página de inicio
+closeLogin.addEventListener('click', function () {
+  window.location.href = 'index.html'; 
 });
