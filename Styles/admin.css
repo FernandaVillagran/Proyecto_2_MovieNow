@@ -21,7 +21,9 @@ body {
     text-align: center;
     
   }
-  
+  #btn-logout.btn.btn-secondary{
+    margin-top: 10px;
+  }
   .btn-add {
     margin-bottom: 20px;
     padding: 10px 20px;
