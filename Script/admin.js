@@ -99,3 +99,13 @@ botonesDelete.forEach(function(boton) {
                 myModal.show();
             }
         });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Selector del botón de salir
+            const logoutButton = document.getElementById('btn-logout');
+        
+            // Evento de clic en el botón de salir
+            logoutButton.addEventListener('click', function () {
+                window.location.href = 'index.html'; // Redireccionar a la página de inicio
+            });
+        });
