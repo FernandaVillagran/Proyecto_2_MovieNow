@@ -33,10 +33,22 @@ document.getElementById('btn-add').addEventListener('click', function() {
     tablaPeliculas.appendChild(nuevaFila);
 
     //  Event listener para eliminar filas al hacer clic en el botón de eliminar
-    //  document.addEventListener('click', function(event) {
+    // Selecciona todos los elementos con la clase 'btn-delete'
+const botonesDelete = document.querySelectorAll('.btn-delete');
+
+// Itera sobre cada botón y agrega un event listener de clic a cada uno
+botonesDelete.forEach(function(boton) {
+    boton.addEventListener('click', function(event) {
+        // Aquí va el código a ejecutar cuando se hace clic en un botón delete
+        let fila = event.target.closest('tr');
+        fila.remove();
+    });
+}); 
+    
+    // document.addEventListener('click', function(event) {
     //     if (event.target.classList.contains('btn-delete')) {
     //         let fila = event.target.closest('tr');
-    //         fila.remove();
+    // //         fila.remove();
     //     }
     // Cerrar la ventana modal
     const myModal = bootstrap.Modal.getInstance(document.getElementById('myModal'));
@@ -56,6 +68,7 @@ document.getElementById('btn-add').addEventListener('click', function() {
 
             // Actualizar los valores en la fila correspondiente de la tabla
             let fila = document.querySelector(`#tabla-peliculas tr[data-codigo="${codigoEditar}"]`);
+            
             fila.querySelector('td:nth-child(2)').textContent = nombreEditar;
             fila.querySelector('td:nth-child(3)').textContent = categoriaEditar;
             fila.querySelector('td:nth-child(4)').textContent = descripcionEditar;
@@ -73,7 +86,7 @@ document.getElementById('btn-add').addEventListener('click', function() {
                 let codigoEditar = fila.getAttribute('data-codigo');
                 let nombreEditar = fila.querySelector('td:nth-child(2)').textContent;
                 let categoriaEditar = fila.querySelector('td:nth-child(3)').textContent;
-                letdescripcionEditar = fila.querySelector('td:nth-child(4)').textContent;
+                let descripcionEditar = fila.querySelector('td:nth-child(4)').textContent;
                 let publicadoEditar = fila.querySelector('td:nth-child(5) input[type="checkbox"]').checked;
 
                 document.getElementById('codigoEditar').value = codigoEditar;

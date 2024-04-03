@@ -17,34 +17,51 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // recuperar contraseña
-document.addEventListener('DOMContentLoaded', function() {
-    const forgotPasswordLink = document.getElementById('forgot-password-link');
-    const forgotPasswordModal = document.getElementById('forgot-password-modal');
-    const closeModal = document.querySelector('.close');
-    const sendResetEmailBtn = document.getElementById('send-reset-email');
-    const loginForm = document.getElementById('login-form');
-    
-    // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    forgotPasswordLink.addEventListener('click', function(event) {
-      event.preventDefault();
-      forgotPasswordModal.style.display = 'block';
-    });
-  
-    closeModal.addEventListener('onclick', function() {
-      forgotPasswordModal.style.display = 'none';
-    });
-  
-    sendResetEmailBtn.addEventListener('click', function(event) {
-      event.preventDefault();
- 
-      const email = document.getElementById('forgot-email').value;
-      alert('Correo de recuperación enviado a: ' + email);
-      forgotPasswordModal.style.display = 'none';
-    });
-  
-    loginForm.addEventListener('submit', function(event) {
-      event.preventDefault();
-     alert('Formulario de inicio de sesión enviado');
-    });
-  });
+const openModalBtn = document.getElementById('openModal');
+const modal = document.getElementById('modal');
+const closeModalBtn = document.querySelector('.close');
+const sendEmailBtn = document.getElementById('sendEmail');
+const emailInput = document.getElementById('email');
+const alertBox = document.getElementById('alert');
+
+openModalBtn.addEventListener('click', () => {
+  modal.style.display = 'block';
+});
+
+closeModalBtn.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+sendEmailBtn.addEventListener('click', () => {
+  const email = emailInput.value;
+  if (email) {
+    alertBox.style.display = 'block';
+    alertBox.textContent = `Se ha enviado un correo electrónico a ${email}`;
+    setTimeout(() => {
+      alertBox.style.display = 'none';
+      modal.style.display = 'none';
+      emailInput.value = '';
+    }, 3000);
+  } else {
+    alert('Por favor ingrese su correo electrónico.');
+  }
+});
+
+//Para validar el correo electronico
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+sendEmailBtn.addEventListener('click', () => {
+  const email = emailInput.value;
+  if (emailRegex.test(email)) {
+    alertBox.style.display = 'block';
+    alertBox.textContent = `Se ha enviado un correo electrónico a ${email}`;
+    setTimeout(() => {
+      alertBox.style.display = 'none';
+      modal.style.display = 'none';
+      emailInput.value = '';
+    }, 3000);
+  } else {
+    alert('Por favor ingrese un correo electrónico válido.');
+  }
+});

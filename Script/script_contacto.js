@@ -16,7 +16,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
         alert("Formulario enviado correctamente, pronto nos comunicaremos con Ud.");
 
-        // Reset form fields after submission
+        // blanqueamos  los campos 
         document.getElementById("contact-form").reset();
     });
+});
+//para cerrar el formulario
+const closeContactFormBtn = document.getElementById('closeContactForm');
+const contactContainer = document.querySelector('.contact-container');
+
+closeContactFormBtn.addEventListener('click', () => {
+  contactContainer.style.display = 'none';
+
+  window.location.href = 'index.html';
 });
