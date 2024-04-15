@@ -1,10 +1,10 @@
-document.getElementById('btn-add').addEventListener('click', function() {
+document.getElementById('btn-add').addEventListener('click', function () {
     const myModal = new bootstrap.Modal(document.getElementById('myModal'));
     myModal.show();
 });
 
- // Event listener para el envío del formulario de agregar película
- document.getElementById('form-agregar-pelicula').addEventListener('submit', function(event) {
+// Event listener para el envío del formulario de agregar película
+document.getElementById('form-agregar-pelicula').addEventListener('submit', function (event) {
     event.preventDefault(); // Evita que el formulario se envíe normalmente
 
     // Obtener los valores del formulario
@@ -24,88 +24,103 @@ document.getElementById('btn-add').addEventListener('click', function() {
         <td>${descripcion}</td>
         <td><input type="checkbox" ${publicado ? 'checked' : ''}></td>
         <td>
-        <span class="btn-delete">Eliminar</span>
-        <span class="btn-edit">Editar</span>
-        <span class="btn-highlight">Destacado</span>
-        </td>
+            <span class="btn-delete" title="Eliminar">
+              <i class="fa-solid fa-trash-can"></i>
+            </span>
+            <span class="btn-edit" title="Editar">
+              <i class="fas fa-edit"></i>
+            </span>
+            <span class="btn-highlight" title="Destacado">
+              <i class="fas fa-star"></i>
+            </span>
+          </td>
     `;
     // Agregar la nueva fila al final de la tabla
     tablaPeliculas.appendChild(nuevaFila);
 
     //  Event listener para eliminar filas al hacer clic en el botón de eliminar
     // Selecciona todos los elementos con la clase 'btn-delete'
-const botonesDelete = document.querySelectorAll('.btn-delete');
+    const botonesDelete = document.querySelectorAll('.btn-delete');
 
-// Itera sobre cada botón y agrega un event listener de clic a cada uno
-botonesDelete.forEach(function(boton) {
-    boton.addEventListener('click', function(event) {
-        // Aquí va el código a ejecutar cuando se hace clic en un botón delete
-        let fila = event.target.closest('tr');
-        fila.remove();
+    // Itera sobre cada botón y agrega un event listener de clic a cada uno
+    botonesDelete.forEach(function (boton) {
+        boton.addEventListener('click', function (event) {
+            // Aquí va el código a ejecutar cuando se hace clic en un botón delete
+            let fila = event.target.closest('tr');
+            fila.remove();
+        });
     });
-}); 
-    
-    // document.addEventListener('click', function(event) {
-    //     if (event.target.classList.contains('btn-delete')) {
-    //         let fila = event.target.closest('tr');
-    // //         fila.remove();
-    //     }
+
     // Cerrar la ventana modal
     const myModal = bootstrap.Modal.getInstance(document.getElementById('myModal'));
     myModal.hide();
 });
+// Primero, selecciona el botón con el ID `#btn-logout`
+const btnLogout = document.querySelector('#btn-logout');
 
-  // Event listener para el envío del formulario de editar película
-        document.getElementById('form-editar-pelicula').addEventListener('submit', function(event) {
-            event.preventDefault(); // Evita que el formulario se envíe normalmente
+// Agrega un evento `click` al botón `#btn-logout`
+btnLogout.addEventListener('click', function() {
+    // Redirige a `index.html` y cierra la página actual
+    window.location.href = 'index.html';
+});
 
-            // Obtener los valores del formulario
-            let codigoEditar = document.getElementById('codigoEditar').value;
-            let nombreEditar = document.getElementById('nombreEditar').value;
-            let categoriaEditar = document.getElementById('categoriaEditar').value;
-            let descripcionEditar = document.getElementById('descripcionEditar').value;
-            let publicadoEditar = document.getElementById('publicadoEditar').checked;
+document.addEventListener("DOMContentLoaded", function () {
+    // Selecciona todos los botones de edición
+    const editButtons = document.querySelectorAll('.btn-edit');
 
-            // Actualizar los valores en la fila correspondiente de la tabla
-            let fila = document.querySelector(`#tabla-peliculas tr[data-codigo="${codigoEditar}"]`);
-            
-            fila.querySelector('td:nth-child(2)').textContent = nombreEditar;
-            fila.querySelector('td:nth-child(3)').textContent = categoriaEditar;
-            fila.querySelector('td:nth-child(4)').textContent = descripcionEditar;
-            fila.querySelector('td:nth-child(5) input[type="checkbox"]').checked = publicadoEditar;
+    // Selecciona el formulario de edición
+    const formEditarPelicula = document.getElementById('form-editar-pelicula');
 
-            // Cerrar la ventana modal
-            const myModal = bootstrap.Modal.getInstance(document.getElementById('myModalEditar'));
-            myModal.hide();
+    // Modal de edición
+    const modalEditar = new bootstrap.Modal(document.getElementById('myModalEditar'));
+
+    // Escuchar evento de clic en los botones de edición
+    editButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            // Encuentra la fila que contiene el botón de edición
+            const row = button.closest('tr');
+
+            // Extrae los datos de la fila
+            const codigo = row.children[0].textContent;
+            const nombre = row.children[1].textContent;
+            const categoria = row.children[2].textContent;
+            const descripcion = row.children[3].textContent;
+            const publicado = row.children[4].querySelector('input').checked;
+
+            // Rellena los campos del formulario de edición
+            formEditarPelicula.querySelector('#codigoEditar').value = codigo;
+            formEditarPelicula.querySelector('#nombreEditar').value = nombre;
+            formEditarPelicula.querySelector('#categoriaEditar').value = categoria;
+            formEditarPelicula.querySelector('#descripcionEditar').value = descripcion;
+            formEditarPelicula.querySelector('#publicadoEditar').checked = publicado;
+
+            // Abre el modal de edición
+            modalEditar.show();
         });
+    });
 
-        // Event listener para abrir la ventana modal de editar al hacer clic en el botón de editar
-        document.addEventListener('click', function(event) {
-            if (event.target.classList.contains('btn-edit')) {
-                let fila = event.target.closest('tr');
-                let codigoEditar = fila.getAttribute('data-codigo');
-                let nombreEditar = fila.querySelector('td:nth-child(2)').textContent;
-                let categoriaEditar = fila.querySelector('td:nth-child(3)').textContent;
-                let descripcionEditar = fila.querySelector('td:nth-child(4)').textContent;
-                let publicadoEditar = fila.querySelector('td:nth-child(5) input[type="checkbox"]').checked;
+    // Escucha el evento de envío del formulario de edición
+    formEditarPelicula.addEventListener('submit', function (event) {
+        event.preventDefault();
 
-                document.getElementById('codigoEditar').value = codigoEditar;
-                document.getElementById('nombreEditar').value = nombreEditar;
-                document.getElementById('categoriaEditar').value = categoriaEditar;
-                document.getElementById('descripcionEditar').value = descripcionEditar;
-                document.getElementById('publicadoEditar').checked = publicadoEditar;
+        // Extrae los valores del formulario de edición
+        const codigo = formEditarPelicula.querySelector('#codigoEditar').value;
+        const nombre = formEditarPelicula.querySelector('#nombreEditar').value;
+        const categoria = formEditarPelicula.querySelector('#categoriaEditar').value;
+        const descripcion = formEditarPelicula.querySelector('#descripcionEditar').value;
+        const publicado = formEditarPelicula.querySelector('#publicadoEditar').checked;
 
-                const myModal = new bootstrap.Modal(document.getElementById('myModalEditar'));
-                myModal.show();
-            }
-        });
+        // Actualiza la fila correspondiente con los valores editados
+        const row = document.querySelector(`#tabla-peliculas td:contains('${codigo}')`).closest('tr');
+        row.children[1].textContent = nombre;
+        row.children[2].textContent = categoria;
+        row.children[3].textContent = descripcion;
+        row.children[4].querySelector('input').checked = publicado;
 
-        document.addEventListener('DOMContentLoaded', function () {
-            // Selector del botón de salir
-            const logoutButton = document.getElementById('btn-logout');
-        
-            // Evento de clic en el botón de salir
-            logoutButton.addEventListener('click', function () {
-                window.location.href = 'index.html'; // Redireccionar a la página de inicio
-            });
-        });
+        // Cierra el modal de edición
+        modalEditar.hide();
+    });
+});
+
+
+

@@ -13,7 +13,7 @@ body {
   .container {
     margin-top:20px;
     width: 80%;
-    background-color: rgba(255, 255, 255, 0.626);
+    background-color:white
      }
   
   h1 {
@@ -21,8 +21,8 @@ body {
     text-align: center;
     
   }
-  #btn-logout.btn.btn-secondary{
-    margin-top: 10px;
+  #btn-logout{
+    margin: 20px;
   }
   .btn-add {
     margin-bottom: 20px;
